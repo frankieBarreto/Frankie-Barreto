@@ -2,17 +2,26 @@
 <html class="no-js" lang="en">
 
 <head>
+    <!-- Google Analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
     <script>
-        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="ACLfQi2smw1rcrO0hl3BtRK0AL5i6b2W";;analytics.SNIPPET_VERSION="4.15.3";
-        analytics.load("ACLfQi2smw1rcrO0hl3BtRK0AL5i6b2W");
-        analytics.page();
-        }}();
-
-        analytics.track("email clicked", {
-            name: "frankie",
-            email: "frankie@frankie.com"
-        })
-      </script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "ACLfQi2smw1rcrO0hl3BtRK0AL5i6b2W";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("ACLfQi2smw1rcrO0hl3BtRK0AL5i6b2W");
+                analytics.page();
+            }
+        }();
+    </script>
 
     <!--- basic page needs
     ================================================== -->
@@ -54,13 +63,87 @@
     <!-- site header
     ================================================== -->
     <header class="s-header">
+        <div>
+            <script>
+                let firstName, lastName
+                firstNames = ["Randy", "Helen", "Lara", "Tobie", "Emily", "Nick", "Liz", "Zack", "Molly", "Courtney", "Luke", "Micah", "Austin", "Taylor", "Lilly", "Ernest", "Ellis", "Elizabeth", "Jason", "Lucy", "Michael", "Nicole", "Alison", "Paige", "Lyn", "Louise", "Isaac", "Ann", "Marie", "Justin", "Harold", "Esteban", "Carl", "Jeff", "Janae"];
 
+                lastNames = ["Smith", "Crawford", "Hilton", "Chestertown", "Evers", "Calhoun", "Monagle", "Richardson", "Winters", "Myers", "Visscher", "Garcia", "Soma", "Wisbon", "Donzella", "Irungu", "Healy", "Fellow", "Herman", "Ferguson", "Cooper", "Rickey", "Shelly", "Juminsko", "Sothann", "Ellison", "Olson", "Nerini", "Murphy", "Thompson"];
+
+                movies = ["Back To The Future ", "BATMAN: The Dark Knight", "Inside Out"]
+
+                let rando = (arr) => {
+                    let name = arr[Math.floor(Math.random() * arr.length)];
+                    return name
+                }
+
+                const signIn = () => {
+                    let userId = Math.floor(Math.random() * 10000);
+                    let traits = { firstName: rando(firstNames), lastName: rando(lastNames) };
+                    analytics.identify(userId, traits)
+                }
+
+                const playMovie = () => {
+                    videoName = rando(movies);
+                    analytics.track("Video", {
+                        type: "track",
+                        title: videoName,
+                        event: "Played"
+                    })
+                    analytics.track("Video", {
+                        type: "track",
+                        title: videoName,
+                        event: "Paused"
+                    })
+                    analytics.track("Video", {
+                        type: "track",
+                        title: videoName,
+                        event: "Ended"
+                    })
+                }
+
+                function formatQs() {
+                    //   var output = {};
+                    //   var qs = document.location.search.substring(1);
+                    //   qs = qs.split('&');
+
+                    //   for (var i = 0; i < qs.length; i++) {
+                    //     var tokens = qs[i].split('=');
+                    //     output[tokens[0].toLowerCase()] = tokens[1];
+                    // }
+
+                    //   return output;
+                    analytics.track("User Referred", {
+                        userId: '019mr8mf4r',
+                        event: 'Item Purchased',
+                        properties: {
+                            revenue: 39.95,
+                            shippingMethod: '2-day'
+                        },
+                        context: {
+                            campaign: {
+                                name: "TPS Innovation Newsletter",
+                                source: utm_source,
+                                medium: utm_medium,
+                                term: utm_term,
+                                content: utm_content
+                            }
+                        }
+                    });
+                }
+            </script>
+            <button onclick="signIn()">sign in</button>
+            <button onclick="analytics.reset()">sign out</button>
+            <button onclick="playMovie()">PLAY</button>
+            <button onclick="formatQs()">collect</button>
+        </div>
         <div class="header-logo">
             <a class="site-logo" href="index.html"></a>
             <a href="index.html" alt="Homepage"> HOME
             </a>
         </div>
 
+        
         <nav class="header-nav-wrap">
             <ul class="header-main-nav">
                 <li class="current"><a class="smoothscroll" href="#intro" title="intro">Intro</a></li>
@@ -72,7 +155,8 @@
 
         <a class="header-menu-toggle" href="#"><span>Menu</span></a>
         <meta property='og:title' content='Title of the article' />
-        <meta property='og:image' content='https://frankiebarreto.github.io/Frankie-Barreto/ https://i.ibb.co/T434bKw/homepage.png' />
+        <meta property='og:image'
+            content='https://frankiebarreto.github.io/Frankie-Barreto/ https://i.ibb.co/T434bKw/homepage.png' />
         <meta property='og:description' content='My portfolio website.' />
         <meta property='og:url' content='https://frankiebarreto.github.io/Frankie-Barreto/' />
 
@@ -122,8 +206,10 @@
             <div class="row about-me__content" data-aos="fade-up">
                 <div class="column large-full about-me__text">
                     <p class="lead">
-                        Full-Stack developer with an extensive background in the service industry. Skilled at anticipating client needs, communicating with others, and creating dynamic software. 
-                        Creativity and problem solving are two of my strengths and appreciate the freedom of creation that software development provides.
+                        Full-Stack developer with an extensive background in the service industry. Skilled at
+                        anticipating client needs, communicating with others, and creating dynamic software.
+                        Creativity and problem solving are two of my strengths and appreciate the freedom of creation
+                        that software development provides.
                     </p>
                     <!-- <p class="lead">
                         Using the skills i acquired from my previous career, I anticipate client needs and norms in the
@@ -373,5 +459,6 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://fast.wistia.com/embed/medias/khzwtk2tvh.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_khzwtk2tvh" style="height:360px;position:relative;width:640px"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/khzwtk2tvh/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div>
 
 </body>
