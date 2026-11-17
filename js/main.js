@@ -148,7 +148,7 @@
     var ssPhotoswipe = function() {
         var items = [],
             $pswp = $('.pswp')[0],
-            $folioItems = $('.item-folio');
+            $folioItems = $('.item-folio').has('.thumb-link[data-size]');
 
         // get items
         $folioItems.each( function(i) {
