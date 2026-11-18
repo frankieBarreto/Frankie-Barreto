@@ -3,14 +3,11 @@ html { scroll-padding-top: 9rem; }
 .s-header { background: #050505; position: fixed; }
 .s-intro { height: auto; min-height: 0; padding: 14rem 0 7rem; }
 .intro-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 5rem;
-  align-items: center;
+  display: block;
   height: auto;
   padding-top: 0;
 }
-.intro-text { position: relative; transform: none; }
+.intro-text { position: relative; transform: none; max-width: 86rem; }
 .intro-text h1 { font-size: clamp(4.2rem, 5vw, 6.8rem); line-height: 1.1; margin-bottom: 2.4rem; }
 .intro-text h3 { font-size: 2rem; color: #ef7ba9; }
 .intro-summary { font-size: 1.9rem; line-height: 1.65; color: #eee; margin-bottom: 2rem; }
@@ -29,7 +26,6 @@ html { scroll-padding-top: 9rem; }
 .intro-actions .button-primary:hover { background: #a91053; border-color: #a91053; }
 .intro-actions .button-outline { color: #fff; border: 1px solid #a6a6a6; background: transparent; }
 .intro-contact { color: #eee; font-size: 1.5rem; padding: .8rem 0; text-decoration: underline; text-underline-offset: .4rem; }
-.intro-portrait img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
 .s-about, .s-works { padding: 7rem 0; }
 .s-contact { padding: 7rem 0 3rem; }
 .section-heading { margin-bottom: 3rem; padding-top: 2rem; letter-spacing: .25rem; }
@@ -61,18 +57,14 @@ html { scroll-padding-top: 9rem; }
 a:focus-visible { outline: 3px solid #cf1767; outline-offset: 5px; }
 @media (max-width: 800px) {
   .s-intro { padding-top: 11rem; }
-  .intro-content { grid-template-columns: minmax(0, 1fr) minmax(0, .65fr); gap: 2.4rem; }
   .intro-text h1 { font-size: 4.5rem; }
   .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .s-about, .s-works, .s-contact { padding-top: 5rem; padding-bottom: 5rem; }
 }
 @media (max-width: 600px) {
-  .intro-content { display: flex; flex-direction: column; align-items: stretch; }
   .intro-text { width: 100%; }
   .intro-text h1 { font-size: 4.2rem; }
   .intro-summary { font-size: 1.7rem; }
-  .intro-portrait { max-width: 26rem; margin-top: 1.5rem; }
-  .intro-portrait img { aspect-ratio: 1; }
   .project-grid { grid-template-columns: 1fr; }
   .masonry-wrap { width: calc(100% - 4rem); }
   .project-grid .item-folio { padding: 2rem; }
