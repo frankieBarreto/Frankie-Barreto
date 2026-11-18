@@ -1,0 +1,83 @@
+/* Portfolio layout for IT support roles. */
+html { scroll-padding-top: 9rem; }
+.s-header { background: #050505; position: fixed; }
+.s-intro { height: auto; min-height: 0; padding: 14rem 0 7rem; }
+.intro-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 5rem;
+  align-items: center;
+  height: auto;
+  padding-top: 0;
+}
+.intro-text { position: relative; transform: none; }
+.intro-text h1 { font-size: clamp(4.2rem, 5vw, 6.8rem); line-height: 1.1; margin-bottom: 2.4rem; }
+.intro-text h3 { font-size: 2rem; color: #ef7ba9; }
+.intro-summary { font-size: 1.9rem; line-height: 1.65; color: #eee; margin-bottom: 2rem; }
+.intro-location { font-size: 1.5rem; line-height: 1.6; color: #bcbcbc; margin-bottom: 2.8rem; }
+.intro-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+.intro-actions .button {
+  font-size: 1.1rem;
+  letter-spacing: .1rem;
+  padding: 0 1.8rem;
+  margin: 0;
+  line-height: 4.8rem;
+  height: auto;
+  white-space: nowrap;
+}
+.intro-actions .button-primary { background: #cf1767; border-color: #cf1767; color: #fff; }
+.intro-actions .button-primary:hover { background: #a91053; border-color: #a91053; }
+.intro-actions .button-outline { color: #fff; border: 1px solid #a6a6a6; background: transparent; }
+.intro-contact { color: #eee; font-size: 1.5rem; padding: .8rem 0; text-decoration: underline; text-underline-offset: .4rem; }
+.intro-portrait img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+.s-about, .s-works { padding: 7rem 0; }
+.s-contact { padding: 7rem 0 3rem; }
+.section-heading { margin-bottom: 3rem; padding-top: 2rem; letter-spacing: .25rem; }
+.section-heading::before { width: 6rem; }
+.section-heading--centerbottom { padding-top: 0; padding-bottom: 2rem; }
+.section-heading--centerbottom::before { margin-left: -3rem; }
+#experience h3 { margin: 0 0 3rem; }
+#experience h4 { margin: 0 0 1rem; font-size: 2rem; }
+#experience p { margin-bottom: 2.8rem; font-size: 1.7rem; line-height: 1.7; }
+.skills-section { background: #f5f5f5; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skills-grid .column { width: auto; min-width: 0; }
+.skills-grid h3 { font-size: 2rem; margin: 0 0 1.2rem; }
+.skills-grid p { font-size: 1.6rem; line-height: 1.8; margin: 0; }
+.section-desc { font-size: 2.7rem; margin-bottom: 0; }
+.masonry-wrap { max-width: 1140px; width: calc(100% - 4.8rem); margin-top: 3.5rem; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; align-items: start; }
+.project-grid .masonry__brick { float: none; width: auto; padding: 0; margin: 0; }
+.project-grid .item-folio { padding: 2.4rem; text-align: left; }
+.project-grid .item-folio__thumb img { display: block; width: 100%; height: auto; }
+.project-grid .item-folio__text { display: block; margin-top: 2rem; }
+.project-grid .item-folio__title { display: block; font-size: 2rem; line-height: 1.4; margin-bottom: .6rem; }
+.project-grid .item-folio__cat { display: block; font-size: 1.4rem; margin-bottom: 1.6rem; }
+.project-grid .item-folio__cat::before { content: none; }
+.project-grid .item-folio__text p { font-size: 1.6rem; line-height: 1.65; margin-bottom: 1rem; }
+.project-grid .item-folio__text p:last-child { margin-bottom: 0; }
+.contact-email { font-size: clamp(2.3rem, 4vw, 5rem); margin: 2rem 0 3rem; overflow-wrap: anywhere; }
+.contact-infos { margin-top: 4rem; font-size: 2.6rem; }
+a:focus-visible { outline: 3px solid #cf1767; outline-offset: 5px; }
+@media (max-width: 800px) {
+  .s-intro { padding-top: 11rem; }
+  .intro-content { grid-template-columns: minmax(0, 1fr) minmax(0, .65fr); gap: 2.4rem; }
+  .intro-text h1 { font-size: 4.5rem; }
+  .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .s-about, .s-works, .s-contact { padding-top: 5rem; padding-bottom: 5rem; }
+}
+@media (max-width: 600px) {
+  .intro-content { display: flex; flex-direction: column; align-items: stretch; }
+  .intro-text { width: 100%; }
+  .intro-text h1 { font-size: 4.2rem; }
+  .intro-summary { font-size: 1.7rem; }
+  .intro-portrait { max-width: 26rem; margin-top: 1.5rem; }
+  .intro-portrait img { aspect-ratio: 1; }
+  .project-grid { grid-template-columns: 1fr; }
+  .masonry-wrap { width: calc(100% - 4rem); }
+  .project-grid .item-folio { padding: 2rem; }
+  .section-desc { font-size: 2.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
